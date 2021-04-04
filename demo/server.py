@@ -9,6 +9,7 @@ port = 5000
 #    port = int(f.readline().strip())
 #    print(server,port)
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 server_socket.bind((server,port))
 print('waiting for client...')
 server_socket.listen(0)
