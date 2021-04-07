@@ -15,12 +15,6 @@ log = []
 #begin_idx_each: {client_addr:begin_idx}
 begin_idx_each = {}
 
-#if you are running this on separate server...
-#with open('host.txt', 'rt') as f:
-#    server = f.readline().strip()
-#    port = int(f.readline().strip())
-#    print(server,port)
-
 def dbg(name, param):
     print('{}={}{}'.format(name,param,type(param)))
 
@@ -115,6 +109,14 @@ def manage_sock(client_socket, addr, lock):
     client_socket.close()
 
 def main():
+    server = 'localhost'
+    port = 5000
+    try:
+        with open('host.txt', 'rt') as f:
+            server = f.readline().strip()
+            port = int(f.readline().strip())
+    except FileNotFoundError:
+        pass
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server_socket.bind((server,port))

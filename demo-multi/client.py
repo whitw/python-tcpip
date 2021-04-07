@@ -85,6 +85,14 @@ def send_chat(client_socket, name, color):
         send(client_socket, name, color, msg)
 
 def main():
+    server = 'localhost'
+    port = 5000
+    try:
+        with open('client.txt', 'rt') as f:
+            host = f.readline().strip()
+            port = int(f.readline().strip())
+    except FileNotFoundError:
+        pass
     color_re = re.compile('[0-9a-fA-F]{6}')
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
