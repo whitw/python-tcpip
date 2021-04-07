@@ -1,4 +1,6 @@
 memo.txt
-host.txt
+demo/host.txt
+demo-multi/host.txt
+demo-multi/client.txt
 demo/.venv
 demo-multi/.venv
