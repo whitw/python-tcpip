@@ -42,7 +42,7 @@ def recv(client_socket):
         num_packet = int.from_bytes(client_socket.recv(1),'big')
     except socket.timeout as e:
         raise e
-    except ConnectionResetError:
+    except OSError:
         return
     if not num_packet:
         return
