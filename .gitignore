@@ -2,5 +2,6 @@ memo.txt
 demo/host.txt
 demo-multi/host.txt
 demo-multi/client.txt
+nohup.out
 demo/.venv
 demo-multi/.venv
